@@ -9,40 +9,31 @@ public class MatrixZero{
             {3,4,5,6}
         };
 
-        ArrayList<Integer> remI = new ArrayList<>();
-        ArrayList<Integer> remJ = new ArrayList<>();
+        ArrayList<Integer> rows = new ArrayList<>();
+        ArrayList<Integer> cols = new ArrayList<>();
 
 
         for(int i =0; i<matrix.length;i++){
             for(int j=0;j<matrix[i].length; j++){
                 if(matrix[i][j]==0){
-                    remI.add(i);
-                    remJ.add(j);
+                    rows.add(i);
+                    cols.add(j);
                 }
             }
         }
 
 
-        for(int i =0; i<matrix.length;i++){ 
-            for (int j = 0; j < remI.size(); j++) {
-                if (i == remI.get(j) ){
-                    for (int k = 0; k < matrix.length; k++) {
-                        matrix[i][k]=0;
-                    }
-                }
-            }
-        }
+for (int row : rows) {
+    for (int col = 0; col < matrix[row].length; col++) {
+        matrix[row][col] = 0;
+    }
+}
 
-                for(int i =0; i<matrix.length;i++){ 
-            for (int j = 0; j < remJ.size(); j++) {
-                if (i == remJ.get(j) ){
-                    for (int k = 0; k < matrix.length; k++) {
-                        matrix[k][i]=0;
-                    }
-                }
-            }
-        }
-
+for (int col : cols) {
+    for (int row = 0; row < matrix.length; row++) {
+        matrix[row][col] = 0;
+    }
+}
 
                 for(int i =0; i<matrix.length;i++){
             for(int j=0;j<matrix[i].length; j++){
